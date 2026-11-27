@@ -1,0 +1,48 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+[Aa]rtifacts/
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# IDE and user state
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pfx
+*.key
+secrets.json
+appsettings.Local.json
+
+# Voluntary biometric samples and generated local state
+local-data/*
+!local-data/README.md
+dataset/
+datasets/
+samples/
+known_faces/
+captures/
+exports/
+*.lbph.yml
+*.lbph.yaml
+*.trained-model
+
+# Authentic screenshots are added deliberately during PR #06
+docs/screenshots/*
+!docs/screenshots/README.md
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
