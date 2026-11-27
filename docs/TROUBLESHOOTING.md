@@ -2,16 +2,20 @@
 
 ## SDK selected incorrectly
 
-**Symptom:** `A compatible .NET SDK was not found.`  
-**Check:** run `dotnet --info` and inspect `global.json`.  
+**Symptom:** `A compatible .NET SDK was not found.`
+
+**Check:** run `dotnet --info` and inspect `global.json`.
+
 **Recovery:** install .NET SDK 10.0.402 or a permitted patch in its feature band.
 Do not change the target framework merely to hide an environment problem.
 
 ## NuGet restore fails
 
-**Symptom:** packages cannot be downloaded or resolved.  
+**Symptom:** packages cannot be downloaded or resolved.
+
 **Check:** network access, NuGet source configuration, and the exact versions in
-`Directory.Packages.props`.  
+`Directory.Packages.props`.
+
 **Recovery:** restore connectivity to `https://api.nuget.org/v3/index.json`, then
 run `dotnet nuget locals all --list` and retry. Clear caches only when corruption
 is evidenced; do not remove package pins.
@@ -19,18 +23,22 @@ is evidenced; do not remove package pins.
 ## OpenCvSharp native DLL does not load
 
 **Symptom:** `DllNotFoundException`, `TypeInitializationException`, or a native
-load failure.  
+load failure.
+
 **Check:** Windows x64 process, full `OpenCvSharp4.Windows` package, Release
-output runtimes, and integration smoke test.  
+output runtimes, and integration smoke test.
+
 **Recovery:** restore/build for x64, confirm antivirus did not quarantine native
 files, and avoid the Slim or wrong-architecture runtime. Record the complete
 inner exception.
 
 ## Camera unavailable — planned feature
 
-**Symptom:** Start cannot open the selected index.  
+**Symptom:** Start cannot open the selected index.
+
 **Check:** Windows Settings > Privacy & security > Camera, another application
-using the device, camera index, driver, and physical connection.  
+using the device, camera index, driver, and physical connection.
+
 **Recovery:** close competing software, grant desktop-app permission, reconnect
 the camera, or choose another index. The app must remain usable and show an
 understandable error.
