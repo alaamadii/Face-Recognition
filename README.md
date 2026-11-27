@@ -11,7 +11,7 @@ against voluntary samples.
 
 **Student number:** Not yet provided
 
-**Current phase:** PR #00 — engineering foundation
+**Current phase:** PR #01 — WinForms application interface
 
 > This is a local classroom demonstration, not an identity-verification,
 > surveillance, attendance, access-control, or safety system. Predictions are
@@ -19,16 +19,17 @@ against voluntary samples.
 
 ## Status
 
-PR #00 provides the .NET solution, dependency boundaries, a blank WinForms
-shell, application-state foundation, camera-free tests, CI, and initial
-documentation. Camera input, detection, sample management, training, and
-recognition are planned and are not yet implemented.
+PR #01 adds the responsive WinForms recognition workspace, Turkish navigation,
+PictureBox preview surface, truthful status cards, accessible command states,
+and planned Dataset/Settings views. Camera input, image loading, detection,
+sample management, training, and recognition are not yet implemented.
 
 | Capability | Status |
 |---|---|
 | Layered .NET 10 solution | Implemented |
-| Windows Forms application shell | Implemented; blank by design |
-| Core state validation | Implemented and unit tested |
+| Responsive Windows Forms interface | Implemented and manually validated |
+| PictureBox preview and truthful result/status display | Implemented; no source connected yet |
+| Core state and operation availability | Implemented and unit tested |
 | Native OpenCV and LBPH loading | Compatibility test implemented |
 | Camera start/stop and preview | Planned for PR #02 |
 | Face detection rectangles | Planned for PR #03 |
@@ -56,7 +57,7 @@ suitable for this project.
 - A webcam only for later manual camera tests
 
 No Python, database, cloud API, paid service, GPU, or webcam is needed to build
-and run the PR #00 automated tests.
+and run the automated tests.
 
 ## Build and test
 
@@ -69,7 +70,7 @@ dotnet build FaceRecognition.slnx --configuration Release --no-restore
 dotnet test FaceRecognition.slnx --configuration Release --no-build
 ```
 
-Run the blank application shell:
+Run the application interface:
 
 ```powershell
 dotnet run --project src/FaceRecognition.App/FaceRecognition.App.csproj
@@ -94,7 +95,13 @@ See [Architecture](docs/ARCHITECTURE.md),
 [Requirements](docs/REQUIREMENTS.md), and
 [Computer Vision](docs/COMPUTER_VISION.md) for the planned design.
 
-## Planned user workflow
+## User workflow
+
+The current interface supports navigation among Tanıma, Veri Seti, and Ayarlar,
+shows the inactive camera/model state, and explains when a requested operation
+belongs to a later phase. It does not open a camera or image yet.
+
+The planned complete workflow is:
 
 1. Add clear, voluntary local samples under a label and give informed consent.
 2. Train a local LBPH model after dataset validation.
@@ -102,8 +109,8 @@ See [Architecture](docs/ARCHITECTURE.md),
 4. Review face rectangles, experimental labels, and LBPH distance values.
 5. Stop the camera and delete local samples/model when finished.
 
-This workflow is not implemented in PR #00. Current usage is limited to build,
-test, and launching the blank application shell.
+Only the interface portion is implemented in PR #01. The operational steps are
+deliberately deferred to PRs #02–#04.
 
 ## Private data
 
@@ -116,7 +123,7 @@ informed volunteers. See [Security and Privacy](docs/SECURITY_PRIVACY.md).
 - Camera and image operations are not implemented yet.
 - No detector or verified Haar model is included yet.
 - No dataset, training workflow, prediction, or deletion UI exists yet.
-- Hardware compatibility has not been manually validated.
+- The interface has been manually validated, but camera hardware has not.
 - LBPH quality will depend on lighting, pose, camera, and sample diversity.
 - There is no liveness or spoof detection.
 

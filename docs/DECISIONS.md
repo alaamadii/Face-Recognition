@@ -88,3 +88,31 @@
 - **Decision:** Do not add a license until the repository owner chooses one.
 - **Consequences:** Public visibility alone does not grant reuse rights; a later
   decision should address the project and third-party model notices.
+
+## ADR-008 — Turkish presentation with English code
+
+- **Status:** Accepted
+- **Context:** The professor-facing assignment and mandatory operation names are
+  Turkish, while the codebase and technical documentation use English.
+- **Alternatives:** entirely English UI; bilingual labels; Turkish visible UI
+  with English identifiers and documentation.
+- **Decision:** Use concise Turkish labels and feedback in the desktop interface
+  while keeping C# identifiers and technical documentation in English.
+- **Rationale:** This matches the course context without duplicating every label
+  or reducing code readability.
+- **Consequences:** Future UI text must remain consistent and should be prepared
+  for resource-based localization if a second language is later required.
+
+## ADR-009 — Built-in responsive WinForms controls
+
+- **Status:** Accepted
+- **Context:** PR #01 needs a polished, scalable interface without adding a UI
+  framework or coupling Core to WinForms.
+- **Alternatives:** third-party component library; absolute-positioned controls;
+  built-in layout containers plus a small repeated MetricCard control.
+- **Decision:** Use TableLayoutPanel, FlowLayoutPanel, docking, font-based
+  autoscaling, built-in controls, and one repository-owned MetricCard.
+- **Rationale:** This keeps dependencies unchanged, supports the tested display
+  scaling, and makes the interface explainable.
+- **Consequences:** Visual behavior needs manual Windows validation; pixel-level
+  UI tests remain intentionally excluded.

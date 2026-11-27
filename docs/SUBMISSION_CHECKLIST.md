@@ -1,6 +1,6 @@
 # Submission Checklist
 
-Status is truthful as of PR #00. `[ ]` means incomplete or unverified; `[x]`
+Status is truthful as of PR #01. `[ ]` means incomplete or unverified; `[x]`
 means supported by repository evidence.
 
 ## Professor requirements
@@ -14,7 +14,7 @@ means supported by repository evidence.
 - [ ] FR-007 Select Image operation
 - [ ] FR-008 understandable camera/model errors
 - [x] FR-009 C# OpenCV dependency and camera-free native compatibility test
-- [ ] FR-010 WinForms PictureBox presentation (WinForms shell exists; PictureBox pending)
+- [x] FR-010 WinForms PictureBox presentation
 
 ## Engineering foundation
 
@@ -25,20 +25,22 @@ means supported by repository evidence.
 - [x] SDK and NuGet versions pinned
 - [x] Full OpenCvSharp package selected; Slim excluded
 - [x] State foundation and deterministic Core tests
+- [x] Responsive main interface and Turkish navigation
+- [x] State-driven Start/Stop/Select/Clear availability
 - [x] Windows CI workflow created
 - [x] GitHub CI confirmed green for PR #00
 
 ## Validation and quality
 
-- [ ] Release restore/build completed and recorded
-- [ ] Automated tests completed and recorded
-- [ ] Formatting verification completed and recorded
+- [x] Release restore/build completed and recorded for PR #01
+- [x] Automated tests completed and recorded for PR #01
+- [x] Formatting verification completed and recorded for PR #01
 - [ ] Physical camera start/stop manually tested
 - [ ] Camera unavailable/permission scenarios tested
 - [ ] Invalid image, no-face, and multiple-face scenarios tested
 - [ ] Missing cascade/model scenarios tested
 - [ ] Repeated stop/close disposal tested
-- [ ] UI responsiveness validated
+- [x] PR #01 interface navigation/resizing/keyboard behavior validated
 - [ ] Local data deletion validated
 
 ## Privacy and documentation
@@ -57,6 +59,8 @@ means supported by repository evidence.
 - [x] Public GitHub repository
 - [x] Development performed on a feature branch through a pull request
 - [x] PR #00 opened and CI confirmed
+- [x] PR #01 opened
+- [x] PR #01 CI confirmed
 - [ ] All later phase PRs reviewed
 - [ ] Meaningful final commit history reviewed
 - [x] Student name: Alaa Madi

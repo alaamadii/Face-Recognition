@@ -20,7 +20,9 @@ Current coverage verifies:
 - valid camera start/active/stop transitions;
 - rejection of a conflicting image operation while camera is active;
 - required understandable message for Faulted state;
-- message normalization and recovery to Idle.
+- message normalization and recovery to Idle;
+- Idle, CameraStarting, CameraActive, ImageLoaded, and Faulted command
+  availability for Start, Stop, Select, and Clear.
 
 Later Core tests will cover label validation, settings bounds, prediction
 interpretation, unknown handling, and storage result semantics.
@@ -85,3 +87,28 @@ dotnet test FaceRecognition.slnx --configuration Release --no-build
 Camera lifecycle, image loading, detection, recognition quality,
 responsiveness, and deletion tests are **Not run** because those features are
 outside PR #00.
+
+## PR #01 actual results
+
+Validated locally on 2026-11-27 using Windows 10.0.22631 x64 and .NET SDK
+10.0.402:
+
+| Check | Result |
+|---|---|
+| Restore | Passed; all projects up to date |
+| Format verification | Passed, exit code 0 |
+| Release build | Passed with 0 warnings and 0 errors |
+| Core tests | Passed: 10, failed: 0, skipped: 0 |
+| Native integration tests | Passed: 1, failed: 0, skipped: 0 |
+| Initial Release launch | Passed; responsive `Face Recognition Studio` window |
+| Idle controls | Start/Select enabled; Stop/Clear disabled |
+| Navigation | Recognition, Dataset, and Settings headings verified through Windows accessibility APIs |
+| Keyboard navigation | Logical order verified; disabled actions skipped |
+| Responsive layout | Window remained responsive at minimum and larger sizes; window-only DPI-aware visual inspection performed |
+| Shutdown | Close request succeeded and process exited |
+| GitHub Actions | Passed on Windows x64: run 45974776845 |
+
+The interface test used no webcam, photograph, private data, model, or network
+service. Temporary window captures were deleted and are not submission evidence.
+Camera lifecycle, image loading, detection, recognition quality, and deletion
+tests remain **Not run** because those features are outside PR #01.
