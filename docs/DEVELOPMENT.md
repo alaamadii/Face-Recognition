@@ -97,8 +97,11 @@ PR #1 passed final head CI and was merged into `main` on 2026-11-27 as commit
 - **Branch:** `feat/application-ui`
 - **Objective:** implement a responsive, accessible, truthful WinForms
   interface without camera, image decoding, detection, training, or recognition.
-- **Pull request:** Pending creation
-- **Commits:** Pending
+- **Pull request:** [#2](https://github.com/alaamadii/Face-Recognition/pull/2)
+- **Commits:**
+  - `adb84f2b3e3354059506f475c92acf7e78c537e7` — responsive WinForms interface and capability mapping
+  - `cd7e0e5caf3e0c5b6142d878158b3fec6034e4d5` — deterministic capability tests
+  - `169529f068f9d66c467a8d685468c41e7d8f0006` — UI phase documentation
 
 ### Implemented changes
 
@@ -147,7 +150,7 @@ Temporary captures used for inspection were deleted and were never tracked.
 | Resize | Passed at minimum and larger sizes; process remained responsive |
 | Clean close | Passed; process exited after `CloseMainWindow` |
 | `git diff --check` | Passed; no whitespace errors |
-| GitHub Actions | Pending pull request |
+| GitHub Actions | Run 45974689135 in progress at journal update time |
 
 ### Scope deliberately deferred
 
@@ -157,6 +160,5 @@ authentic screenshots remain planned. No hardware camera test was run.
 
 ### Remaining PR #01 tasks
 
-1. Commit and push the interface, tests, and documentation.
-2. Open the pull request and record its URL/commits.
-3. Wait for confirmed final CI without merging.
+1. Commit and push this journal update.
+2. Wait for confirmed final CI without merging.
