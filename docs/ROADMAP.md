@@ -5,8 +5,8 @@ only after implementation, relevant documentation, local validation, and CI.
 
 | Phase | Branch | Objective | Dependencies | Status |
 |---|---|---|---|---|
-| PR #00 | `chore/initialize-project` | Solution, boundaries, dependency pins, tests, CI, documentation | Empty repository | In review: PR #1; CI passed |
-| PR #01 | `feat/application-ui` | Recognition layout, PictureBox, navigation, state-driven commands and feedback | PR #00 | Planned |
+| PR #00 | `chore/initialize-project` | Solution, boundaries, dependency pins, tests, CI, documentation | Empty repository | Complete: PR #1 merged |
+| PR #01 | `feat/application-ui` | Recognition layout, PictureBox, navigation, state-driven commands and feedback | PR #00 | In progress; local validation passed |
 | PR #02 | `feat/camera-and-images` | Visible camera lifecycle, image selection, preview, cancellation and errors | PR #01 | Planned; hardware-dependent validation |
 | PR #03 | `feat/face-detection` | Reviewed Haar asset, all-face detection, rectangles, no-face handling | PR #02 | Planned |
 | PR #04 | `feat/face-recognition` | Voluntary dataset management, LBPH training, labels, distance, Unknown, deletion | PR #03 | Planned |

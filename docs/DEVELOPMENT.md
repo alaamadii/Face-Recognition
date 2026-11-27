@@ -12,6 +12,8 @@
   - `8a576941dbdc0c1773ca2828c82a4e03a35d70d8` — solution, dependencies, tests, and CI
   - `ee8543011d32dc906ce33f5946297e61d76b5103` — initial technical documentation
   - `283877129442ad191cf3d5ea84e55113af900b5d` — troubleshooting formatting correction
+  - `beeca871cee3812e4a5720f0dc8546e6a941381f` — pull-request development evidence
+  - `26b582464693630a952a3f93aa67965ad565697c` — successful CI evidence
 
 ### Environment inspected
 
@@ -76,7 +78,7 @@ phases.
 | `dotnet build ... --configuration Release --no-restore` | Passed; 0 warnings, 0 errors |
 | `dotnet test ... --configuration Release --no-build` | Passed; Core 5/5 and native integration 1/1 |
 | `git diff --check` | Passed after correcting Markdown trailing spaces |
-| GitHub Actions | Passed: [run 45962670667](https://github.com/alaamadii/Face-Recognition/actions/runs/45962670667), Windows x64 job completed in 58 seconds |
+| GitHub Actions | Passed: [final run 45962876354](https://github.com/alaamadii/Face-Recognition/actions/runs/45962876354), Windows x64 job completed in 1 minute |
 
 ### Files
 
@@ -84,8 +86,77 @@ Changes cover root configuration and documentation, `.github/`, `assets/`,
 `local-data/`, `src/`, `tests/`, and `docs/`. Use the pull request file list as
 the authoritative detailed inventory after the PR is opened.
 
-### Remaining PR #00 tasks
+### Completion
 
-1. Commit and push the confirmed CI evidence.
-2. Verify the evidence-only commit's final head CI before handoff.
-3. Stop for user review without merging PR #1.
+PR #1 passed final head CI and was merged into `main` on 2026-11-27 as commit
+`000dde2b2ef737f28adc5972560f241e2cab4e5e` after user review.
+
+## PR #01 — Build WinForms application interface
+
+- **Date:** 2026-11-27 (Asia/Riyadh)
+- **Branch:** `feat/application-ui`
+- **Objective:** implement a responsive, accessible, truthful WinForms
+  interface without camera, image decoding, detection, training, or recognition.
+- **Pull request:** Pending creation
+- **Commits:** Pending
+
+### Implemented changes
+
+- Added Turkish navigation for Tanıma, Veri Seti, and Ayarlar.
+- Added a responsive recognition workspace using built-in WinForms layout
+  containers and font-based autoscaling.
+- Added the required PictureBox, Start/Stop/Select/Clear controls, result and
+  status cards, feedback area, and local-processing/privacy notice.
+- Added truthful Dataset and Settings planned-feature views.
+- Added `ApplicationCapabilities` in Core to map application modes to valid
+  commands without a WinForms dependency.
+- Added five deterministic capability-mapping test cases, increasing Core tests
+  from five to ten.
+- Added a reusable App-owned `MetricCard` and a small color palette; no external
+  UI dependency was introduced.
+- Added explicit PictureBox image replacement/clear/close disposal.
+- Deferred Start and Select handlers show informational messages and do not
+  simulate camera, file, model, detection, or recognition success.
+
+### Problems and solutions
+
+The first build reported WinForms analyzer `WFO1000` for a public custom-control
+property without designer serialization metadata. The runtime-only property was
+replaced by an update method, avoiding a warning suppression and design-time
+contract that the control did not need.
+
+The first visual capture appeared to clip the status column because the capture
+process used DPI-virtualized coordinates. A DPI-aware window-only capture showed
+the real layout. During that review, the form was changed from an explicit DPI
+baseline to the standard font autoscaling baseline and compact status wording
+was used. The final interface was checked at its minimum and a larger size.
+Temporary captures used for inspection were deleted and were never tracked.
+
+### Commands and actual results
+
+| Command/check | Result |
+|---|---|
+| `dotnet restore FaceRecognition.slnx` | Passed; all projects up to date |
+| `dotnet format ... --verify-no-changes --no-restore` | Passed; exit code 0 |
+| `dotnet build ... --configuration Release --no-restore` | Passed; 0 warnings, 0 errors |
+| `dotnet test ... --configuration Release --no-build` | Passed; Core 10/10 and native integration 1/1 |
+| Release app launch | Passed; window opened responsive with expected title |
+| Navigation | Passed for Recognition, Dataset, and Settings |
+| Idle actions | Start/Select enabled; Stop/Clear disabled |
+| Keyboard order | Tanıma, Veri Seti, Ayarlar, Kamerayı Başlat, Görüntü Seç |
+| Resize | Passed at minimum and larger sizes; process remained responsive |
+| Clean close | Passed; process exited after `CloseMainWindow` |
+| `git diff --check` | Passed; no whitespace errors |
+| GitHub Actions | Pending pull request |
+
+### Scope deliberately deferred
+
+Camera hardware and capture, OpenFileDialog/image decoding, Haar detection,
+rectangles, sample storage, LBPH training, predictions, model deletion, and
+authentic screenshots remain planned. No hardware camera test was run.
+
+### Remaining PR #01 tasks
+
+1. Commit and push the interface, tests, and documentation.
+2. Open the pull request and record its URL/commits.
+3. Wait for confirmed final CI without merging.

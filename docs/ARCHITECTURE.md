@@ -40,10 +40,12 @@ and Core-owned results. App converts presentation images and updates controls.
 
 | Component | Responsibility | Status |
 |---|---|---|
-| MainForm | Recognition view, commands, status, safe shutdown | Blank shell implemented; UI planned |
+| MainForm | Responsive recognition view, navigation, commands, status, preview ownership | Interface implemented; sources planned |
+| MetricCard | Repeated accessible result/status presentation | Implemented |
 | TrainingForm | Explicit sample management, training, deletion | Planned |
-| SettingsForm | Camera/model/storage information and privacy notice | Planned |
+| Dataset/Settings views | Truthful in-form planned-feature information | Implemented as placeholders |
 | ApplicationState | Valid high-level operation transitions | Implemented |
+| ApplicationCapabilities | UI-independent valid-command mapping | Implemented and tested |
 | CameraService | Open/read/stop camera and own VideoCapture | Planned |
 | ImageService | Validate/decode user-selected images | Planned |
 | FaceDetectionService | Load cascade and return all face regions | Planned |
@@ -53,7 +55,27 @@ and Core-owned results. App converts presentation images and updates controls.
 | ModelStorageService | Atomically save/load/delete model and metadata | Planned |
 
 Interfaces will be introduced when their first implementation or test double is
-needed; PR #00 intentionally avoids speculative contracts.
+needed; PR #01 continues to avoid speculative service contracts.
+
+### Implemented presentation structure
+
+```mermaid
+flowchart LR
+    Sidebar[Turkish navigation] --> Host[MainForm page host]
+    Host --> Recognition[Recognition workspace]
+    Host --> Dataset[Dataset planned view]
+    Host --> Settings[Settings planned view]
+    Recognition --> Actions[Start / Stop / Select / Clear]
+    Recognition --> Preview[PictureBox preview owner]
+    Recognition --> Metrics[MetricCard status and results]
+    Recognition --> Feedback[Operation/error feedback]
+    State[ApplicationState] --> Capabilities[ApplicationCapabilities]
+    Capabilities --> Actions
+```
+
+The form uses WinForms layout containers and font-based autoscaling. It owns and
+disposes any PictureBox image when replaced, cleared, or closed. PR #01 does not
+create capture workers, timers, native frames, or file dialogs.
 
 ## 4. Planned recognition sequence
 
@@ -100,8 +122,9 @@ stateDiagram-v2
     Faulted --> Idle: acknowledge/recover
 ```
 
-`ApplicationState` implements these high-level transitions without depending on
-the UI or hardware. Later forms will map state to enabled commands.
+`ApplicationState` implements these transitions without UI or hardware.
+`ApplicationCapabilities` now maps each mode to Start, Stop, Select, and Clear
+availability; MainForm applies that mapping to controls.
 
 ## 6. Native resource lifecycle
 

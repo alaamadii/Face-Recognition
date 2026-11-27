@@ -2,11 +2,12 @@
 
 ## Current availability
 
-PR #00 contains a blank application shell and engineering tests. It does not yet
-provide camera, image, detection, training, or recognition controls. Sections
-describing those operations are explicitly marked planned.
+PR #01 provides the main recognition interface and navigation. Camera, image,
+detection, training, and recognition operations remain unavailable. Buttons for
+deferred source operations display an informational message rather than a false
+success state.
 
-## Install and launch the current foundation
+## Install and launch the application
 
 1. Use Windows 10 or 11 x64.
 2. Install the .NET 10 SDK matching `global.json`.
@@ -19,14 +20,25 @@ dotnet build FaceRecognition.slnx --configuration Release --no-restore
 dotnet run --project src/FaceRecognition.App/FaceRecognition.App.csproj
 ```
 
-The current window is intentionally empty. Close it normally. A webcam is not
-opened and no personal data is created.
+The application opens on **Tanıma**. The initial status is truthful: zero
+detected faces, no predicted label or LBPH distance, camera stopped, and model
+unavailable. A webcam is not opened and no personal data is created.
+
+## Current navigation
+
+- **Tanıma:** preview surface, source controls, result/status cards, and feedback.
+- **Veri Seti:** planned-feature information for voluntary samples and training.
+- **Ayarlar:** planned camera/model/storage information and privacy boundary.
+
+Use Tab to move through navigation and available actions. While Idle,
+**Kamerayı Durdur** and **Önizlemeyi Temizle** are disabled. Selecting Start or
+Select Image currently explains that the operation arrives in PR #02.
 
 ## Planned recognition workflow
 
 ### Prepare voluntary samples — planned PR #04
 
-Open Dataset, choose a label, and explicitly select clear images belonging to
+Open Veri Seti, choose a label, and explicitly select clear images belonging to
 you or an informed volunteer. The application will validate supported formats
 and usable faces. At least two sample classes/labels are required. Choose Train
 Model only after validation succeeds.
