@@ -150,7 +150,7 @@ Temporary captures used for inspection were deleted and were never tracked.
 | Resize | Passed at minimum and larger sizes; process remained responsive |
 | Clean close | Passed; process exited after `CloseMainWindow` |
 | `git diff --check` | Passed; no whitespace errors |
-| GitHub Actions | Run 45974689135 in progress at journal update time |
+| GitHub Actions | Passed: [run 45974776845](https://github.com/alaamadii/Face-Recognition/actions/runs/45974776845), Windows x64 job completed successfully |
 
 ### Scope deliberately deferred
 
@@ -160,5 +160,6 @@ authentic screenshots remain planned. No hardware camera test was run.
 
 ### Remaining PR #01 tasks
 
-1. Commit and push this journal update.
-2. Wait for confirmed final CI without merging.
+1. Commit and push the confirmed CI evidence.
+2. Verify the evidence-only commit's final head CI.
+3. Stop for user review without merging PR #2.

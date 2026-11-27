@@ -60,7 +60,7 @@ means supported by repository evidence.
 - [x] Development performed on a feature branch through a pull request
 - [x] PR #00 opened and CI confirmed
 - [x] PR #01 opened
-- [ ] PR #01 CI confirmed
+- [x] PR #01 CI confirmed
 - [ ] All later phase PRs reviewed
 - [ ] Meaningful final commit history reviewed
 - [x] Student name: Alaa Madi

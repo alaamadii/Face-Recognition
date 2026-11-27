@@ -106,6 +106,7 @@ Validated locally on 2026-11-27 using Windows 10.0.22631 x64 and .NET SDK
 | Keyboard navigation | Logical order verified; disabled actions skipped |
 | Responsive layout | Window remained responsive at minimum and larger sizes; window-only DPI-aware visual inspection performed |
 | Shutdown | Close request succeeded and process exited |
+| GitHub Actions | Passed on Windows x64: run 45974776845 |
 
 The interface test used no webcam, photograph, private data, model, or network
 service. Temporary window captures were deleted and are not submission evidence.
