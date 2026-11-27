@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/FaceRecognition.App/FaceRecognition.App.csproj" />
+    <Project Path="src/FaceRecognition.Core/FaceRecognition.Core.csproj" />
+    <Project Path="src/FaceRecognition.Infrastructure/FaceRecognition.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/FaceRecognition.Core.Tests/FaceRecognition.Core.Tests.csproj" />
+    <Project Path="tests/FaceRecognition.IntegrationTests/FaceRecognition.IntegrationTests.csproj" />
+  </Folder>
+</Solution>
