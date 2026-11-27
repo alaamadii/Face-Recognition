@@ -7,8 +7,11 @@
 - **Objective:** establish the independent .NET 10/WinForms/OpenCvSharp project,
   architecture boundaries, automated validation, privacy rules, and truthful
   initial documentation without implementing later application features.
-- **Pull request:** Pending creation
-- **Commits:** Pending
+- **Pull request:** [#1](https://github.com/alaamadii/Face-Recognition/pull/1)
+- **Commits:**
+  - `8a576941dbdc0c1773ca2828c82a4e03a35d70d8` — solution, dependencies, tests, and CI
+  - `ee8543011d32dc906ce33f5946297e61d76b5103` — initial technical documentation
+  - `283877129442ad191cf3d5ea84e55113af900b5d` — troubleshooting formatting correction
 
 ### Environment inspected
 
@@ -31,6 +34,14 @@ Substantive work then moved to `chore/initialize-project`. A sandbox restriction
 initially prevented the local branch ref from being written; rerunning the Git
 operation with the required workspace permission created the branch. No project
 change was committed to `main`.
+
+The first NuGet restore attempt was blocked by the restricted network sandbox;
+the approved restore rerun reached NuGet and succeeded. The first Release build
+then found nullable syntax in the hand-authored WinForms designer without an
+explicit generated-file nullable context. The component field was changed to
+the standard designer declaration, after which format, build, and all tests
+passed. A staged whitespace check later identified Markdown hard-break spaces in
+the troubleshooting guide; these were removed and the final diff check passed.
 
 ### Implemented changes
 
@@ -64,8 +75,8 @@ phases.
 | `dotnet format ... --verify-no-changes --no-restore` | Passed; exit code 0 |
 | `dotnet build ... --configuration Release --no-restore` | Passed; 0 warnings, 0 errors |
 | `dotnet test ... --configuration Release --no-build` | Passed; Core 5/5 and native integration 1/1 |
-| `git diff --check` | First check found two Markdown hard-break spaces; corrected, final check pending |
-| GitHub Actions | Not yet run |
+| `git diff --check` | Passed after correcting Markdown trailing spaces |
+| GitHub Actions | Run 45962585004 in progress at journal update time |
 
 ### Files
 
@@ -75,8 +86,5 @@ the authoritative detailed inventory after the PR is opened.
 
 ### Remaining PR #00 tasks
 
-1. Complete the final repository diff/status checks.
-2. Commit project/configuration and documentation meaningfully.
-3. Push the feature branch and open the PR against `main`.
-4. Record real commit and PR references here and push the journal update.
-5. Wait for GitHub Actions and record its confirmed result without merging.
+1. Commit and push this journal update.
+2. Wait for GitHub Actions and record its confirmed result without merging.
