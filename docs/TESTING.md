@@ -80,7 +80,8 @@ dotnet test FaceRecognition.slnx --configuration Release --no-build
 | Native integration tests | Passed: 1, failed: 0, skipped: 0 |
 | OpenCV/LBPH native load | Passed on Windows x64 |
 | Privacy ignore probes | Local face, LBPH model, dataset, and draft screenshot paths ignored |
+| GitHub Actions | Passed on Windows x64: run 45962670667 |
 
 Camera lifecycle, image loading, detection, recognition quality,
 responsiveness, and deletion tests are **Not run** because those features are
-outside PR #00. GitHub CI evidence is recorded only after the workflow completes.
+outside PR #00.

@@ -26,7 +26,7 @@ means supported by repository evidence.
 - [x] Full OpenCvSharp package selected; Slim excluded
 - [x] State foundation and deterministic Core tests
 - [x] Windows CI workflow created
-- [ ] GitHub CI confirmed green for PR #00
+- [x] GitHub CI confirmed green for PR #00
 
 ## Validation and quality
 
@@ -56,7 +56,7 @@ means supported by repository evidence.
 
 - [x] Public GitHub repository
 - [x] Development performed on a feature branch through a pull request
-- [ ] PR #00 opened and CI confirmed
+- [x] PR #00 opened and CI confirmed
 - [ ] All later phase PRs reviewed
 - [ ] Meaningful final commit history reviewed
 - [x] Student name: Alaa Madi
